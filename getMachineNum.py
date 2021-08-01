@@ -1,7 +1,6 @@
 from selenium import webdriver
 import time
-
-from selenium.webdriver import ActionChains
+import json
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -22,39 +21,45 @@ time.sleep(0.5)
 d.find_element_by_id("btn-login").click()
 time.sleep(2)
 base_url = "https://avatar.mws.sankuai.com/#/service/detail/info?appkey={}&env=prod"
-app_keys = ["com.sankuai.waimai.order.trans"]
+app_keys = []
+result = []
+host_map_url_base = "https://avatar.mws.sankuai.com/api/v1/avatar/srv_home/{}/host_map"
+
+with open("wjz","r") as f:
+    for l in f.readlines():
+        app_keys.append(l)
+
 
 for k in app_keys:
+    time.sleep(0.3)
+    print(k, ":")
+    line = []
     url = base_url.format(k)
     d.get(url)
-    xpath = "//*[@id=\"layout\"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div/div/div[1]"
-
-     = WebDriverWait(d, 10, 0.5).until(
+    time.sleep(1)
+    xpath = "//*[@id=\"layout\"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div/span/div/p/span"
+    utilization_rate = WebDriverWait(d, 10, 0.5).until(
         EC.presence_of_element_located((By.XPATH, xpath))
     )
-    time.sleep(0.1)
-    print(McDistr.text)
+    time.sleep(0.5)
+    line.append(str(utilization_rate.text))
+    host_url = host_map_url_base.format(k)
+    print(host_url, type(host_url))
 
-    McDistr.click()
-    ActionChains(d).move_to_element_with_offset(McDistr, 0, 0).context_click(McDistr).perform()
+    d.get(host_url)
+    time.sleep(0.5)
+    host_num_str = d.find_element_by_xpath("/html/body/pre").text
+    host_num = json.loads(host_num_str)
+    host_num = host_num['data']['chart']['rows']
+    line.append(str(host_num))
+    line_str = ";".join(line)
+    line_str = "{}{}".format(line_str, "\n")
+    result.append(line_str)
 
-    x = input()
-
-    ActionChains(d).move_to_element_with_offset(McDistr, 20, 20).context_click(McDistr).perform()
-
-    content_xpath = "//*[@id=\"layout\"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div/div/div[2]"
-    content = WebDriverWait(d, 10, 0.5).until(
-        EC.presence_of_element_located((By.XPATH, content_xpath))
-    )
-    # name = content.find_elements_by_tag_name("span")[0].text
-    #name = d.find_element_by_xpath("//*[@id=\"layout\"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/span[1]")
-
-    num = content.text
-
-    print(":", num)
-
-#//*[@id="layout"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/span[1]
-
+with open("machine.txt", "a+") as f:
+    f.writelines(result)
 
 x = input()
 d.quit()
+
+
