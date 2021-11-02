@@ -1,2 +1,3 @@
-for i in range(10)[3:]:
-    print(i)
+import wjz.1
+
+print wjzdash
