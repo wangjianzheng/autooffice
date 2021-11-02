@@ -4,5 +4,5 @@ print xyz
 grouporder delay30
 
 bb bb bb
-cdcccc
+cccccc
 ddddd

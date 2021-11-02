@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b830578-0f3a-40d7-85bd-a5a6a4fed021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ajx.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/raptor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top99.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.py" beforeDir="false" afterPath="$PROJECT_DIR$/2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/3.py" beforeDir="false" afterPath="$PROJECT_DIR$/3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine.txt" beforeDir="false" afterPath="$PROJECT_DIR$/machine.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selen.py" beforeDir="false" afterPath="$PROJECT_DIR$/selen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wjz" beforeDir="false" afterPath="$PROJECT_DIR$/wjz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wjz-1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wjz-1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
