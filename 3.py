@@ -1,8 +1,9 @@
 import zzr.version-B
 
 print xyz
-grouporder delay30
+groupqorder delay30
 
 bb bb bb
 cccccc
 ddddd
+xxx
